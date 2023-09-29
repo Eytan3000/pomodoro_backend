@@ -11,7 +11,7 @@ dotenv.config();
 //   })
 //   .promise();
 
-const urlDb = `mysql://${process.env.MYSQL_USER}:${process.env.MYSQL_PASSWORD}@${process.env.MYSQL_HOST}:${process.env.MYSQL_PORT}/${process.env.MYSQL_DATABASE}`
+const urlDb = `mysql://${process.env.MYSQL_USER}:${process.env.MYSQLPASSWORD}@${process.env.MYSQLHOST}:${process.env.MYSQLPORT}/${process.env.MYSQLDATABASE}`
 
 const pool = mysql
   .createPool(urlDb)
