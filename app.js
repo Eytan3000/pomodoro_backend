@@ -14,7 +14,7 @@ const {
 } = require('./database.js');
 const { initializeApp } = require('firebase-admin/app'); //Firebase
 const admin = require('./config/firebase-config.js');
-const port = process.env.PORT || 8090;
+// const port = process.env.PORT || 8090;
 //-------------------------------------------------------
 const app = express();
 app.use(express.json());
@@ -125,9 +125,9 @@ app.use((err, req, res, next) => {
   res.status(500).send('Something broke!');
 });
 
-// app.listen(process.env.PORT || 8090, () => {
-//   console.log('server is running on port 8090');
-// });
-app.listen(port, "0.0.0.0", () => {
+app.listen(process.env.PORT || 8090, () => {
   console.log('server is running on port 8090');
 });
+// app.listen(port, "0.0.0.0", () => {
+//   console.log('server is running on port 8090');
+// });
