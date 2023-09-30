@@ -11,10 +11,14 @@ dotenv.config();
 //   })
 //   .promise();
 
-const urlDb = `mysql://${process.env.MYSQL_USER}:${process.env.MYSQLPASSWORD}@${process.env.MYSQLHOST}:${process.env.MYSQLPORT}/${process.env.MYSQLDATABASE}`
-
 const pool = mysql
-  .createPool(urlDb)
+  .createPool({
+    host: process.env.MYSQLHOST,
+    user: process.env.MYSQL_USER,
+    password: process.env.MYSQLPASSWORD,
+    database: process.env.MYSQLDATABASE,
+    port: process.env.MYSQLPORT,
+  })
   .promise();
 
 async function getTasks_active(uid) {
@@ -41,6 +45,7 @@ async function createTask(content, uid) {
   );
   const id = result.insertId;
   return id;
+
 }
 
 async function deleteTask(id) {

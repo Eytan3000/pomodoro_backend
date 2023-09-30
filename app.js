@@ -48,8 +48,10 @@ app.post('/task_create',  async (req, res) => {
   const { content, uid } = req.body;
 
   const taskId = await createTask(content, uid);
-  res.status(201).send(taskId);
+  console.log(taskId);
   
+  // res.send(taskId);
+  res.status(200).send(String(taskId));
 });
 
 // Edit tasks. Body expected: { "content": "updated content" }
