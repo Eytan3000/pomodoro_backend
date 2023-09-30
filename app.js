@@ -19,7 +19,7 @@ const admin = require('./config/firebase-config.js');
 const app = express();
 app.use(express.json());
 app.use(cors({ origin: process.env.CORS }));
-// app.use(authenticateFirebaseToken);
+app.use(authenticateFirebaseToken);
 // Tasks -------------------------------------------------
 //get active tasks
 app.get('/tasks_active/:uid',  async (req, res) => {
@@ -123,6 +123,6 @@ app.use((err, req, res, next) => {
   res.status(500).send('Something broke!');
 });
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 8090, () => {
   console.log('server is running on port 8090');
 });
