@@ -18,7 +18,13 @@ const admin = require('./config/firebase-config.js');
 //-------------------------------------------------------
 const app = express();
 app.use(express.json());
-app.use(cors({ origin: process.env.CORS }));
+
+
+const allowedOrigins = [process.env.CORS1, process.env.CORS2]; 
+app.use(cors({ origin: allowedOrigins }));
+
+
+
 // app.use(authenticateFirebaseToken);
 // Tasks -------------------------------------------------
 //get active tasks
