@@ -20,8 +20,9 @@ const app = express();
 app.use(express.json());
 
 
-const allowedOrigins = [process.env.CORS1]; 
-app.use(cors({ origin: allowedOrigins }));
+// const allowedOrigins = [process.env.CORS1]; 
+// app.use(cors({ origin: allowedOrigins }));
+app.use(cors());
 
 
 
