@@ -30,8 +30,6 @@ app.use(authenticateFirebaseToken);
 // Tasks -------------------------------------------------
 //get active tasks
 app.get('/tasks_active/:uid',  async (req, res) => {
-  console.log('eytan');
-  
   const uid = req.params.uid;
   const result = await getTasks_active(uid);
   res.send(result);
@@ -57,7 +55,6 @@ app.post('/task_create',  async (req, res) => {
   const { content, uid } = req.body;
 
   const taskId = await createTask(content, uid);
-  console.log(taskId);
   
   // res.send(taskId);
   res.status(200).send(String(taskId));
