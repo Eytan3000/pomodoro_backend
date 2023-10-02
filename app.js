@@ -20,15 +20,17 @@ const app = express();
 app.use(express.json());
 
 
-const allowedOrigins = [process.env.CORS1, process.env.CORS2]; 
+const allowedOrigins = [process.env.CORS1]; 
 app.use(cors({ origin: allowedOrigins }));
 
 
 
-app.use(authenticateFirebaseToken);
+// app.use(authenticateFirebaseToken);
 // Tasks -------------------------------------------------
 //get active tasks
 app.get('/tasks_active/:uid',  async (req, res) => {
+  console.log('eytan');
+  
   const uid = req.params.uid;
   const result = await getTasks_active(uid);
   res.send(result);
@@ -134,6 +136,3 @@ app.use((err, req, res, next) => {
 app.listen(process.env.PORT || 8090, () => {
   console.log('server is running on port 8090');
 });
-// app.listen(port, "0.0.0.0", () => {
-//   console.log('server is running on port 8090');
-// });
