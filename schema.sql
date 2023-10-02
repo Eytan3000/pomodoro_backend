@@ -1,5 +1,5 @@
--- Select * FROM tasks;
-Select * FROM users;
+Select * FROM tasks;
+-- Select * FROM users;
 -- desc tasks;
 -- desc users;
 -- Show databases;
