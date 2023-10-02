@@ -26,7 +26,7 @@ app.use(cors());
 
 
 
-// app.use(authenticateFirebaseToken);
+app.use(authenticateFirebaseToken);
 // Tasks -------------------------------------------------
 //get active tasks
 app.get('/tasks_active/:uid',  async (req, res) => {
